@@ -9,13 +9,13 @@ let TodoItem = ({
     onDeleteClick,
     id
 })=>{
-    return <li className={"list-group-item list-item "+ (completed === false? "": "completed")}>
+    return <a href="#" className={"list-group-item list-item "+ (completed === false? "": "completed")}>
         <span className="list-item-text" onClick={()=>onItemClick(id)}>
             {text}
         </span>
 
         <span className="delete-button" onClick={()=>onDeleteClick(id)}>X</span>
-    </li>
+    </a>
 }
 
 TodoItem = connect(null

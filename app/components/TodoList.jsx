@@ -5,9 +5,9 @@ import { connect } from "react-redux"
 let TodoList = ({
     todos
 })=>{
-    return <ul id="todoList" className="list-group">
+    return <div id="todoList" className="list-group">
         {todos.map((t)=> <TodoItem {...t} key={t.id} />)}
-    </ul>
+    </div>
 }
 
 

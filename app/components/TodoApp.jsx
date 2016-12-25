@@ -16,15 +16,20 @@ class TodoApp extends React.Component{
         let{todos, visibilityFilter, dispatch} = this.props;
 
 
-        return (<div id="todoApp">
-            <h1>Todo List</h1>
+        return (<div id="todoApp" className="panel panel-default">
 
-            <AddTodo />
-            <br/>
-            <FilterPanel />
-            <br/>
-            <TodoList />
-
+            <div className="panel-heading">
+                <div className="panel-title">
+                    <h2>Todo List</h2>
+                </div>
+            </div>
+            <div className="panel-body">
+                <AddTodo />
+                <br/>
+                <FilterPanel />
+                <br/>
+                <TodoList />
+            </div>
         </div>);
 
     }
