@@ -8,12 +8,19 @@ let AddTodo = ({
     let input;
     return <div id="addTodo">
         <form >
-            <input type="text" ref={(node)=> input = node}></input>
-            <input type="submit" value={buttonText} onClick={(e)=>{
-                e.preventDefault();
-                onButtonClick(input.value);
-                input.value = ""}
-            } />
+            <div className="input-group">
+                <input placeholder="todo" className="form-control" type="text" ref={(node)=> input = node}></input>
+                <span className="input-group-btn">
+                    <input className="btn btn-primary" type="submit" value={buttonText} onClick={(e)=>{
+                        e.preventDefault();
+                        onButtonClick(input.value);
+                        input.value = ""}
+                    } />
+                </span>
+
+
+            </div>
+
         </form>
     </div>
 }

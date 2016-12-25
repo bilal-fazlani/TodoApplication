@@ -9,7 +9,7 @@ let TodoItem = ({
     onDeleteClick,
     id
 })=>{
-    return <li className={"list-item "+ (completed === false? "": "completed")}>
+    return <li className={"list-group-item list-item "+ (completed === false? "": "completed")}>
         <span className="list-item-text" onClick={()=>onItemClick(id)}>
             {text}
         </span>
