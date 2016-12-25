@@ -17,10 +17,7 @@ let AddTodo = ({
                         input.value = ""}
                     } />
                 </span>
-
-
             </div>
-
         </form>
     </div>
 }

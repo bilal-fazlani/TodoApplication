@@ -2,10 +2,10 @@ import FilterLink from "./FilterLink"
 import React from "react"
 
 export default ()=> {
-    return <div id="filterPanel">
-        Show:  &nbsp;
-        <FilterLink filter="SHOW_ALL" >All</FilterLink> &nbsp;
-        <FilterLink filter="SHOW_COMPLETED" >Completed</FilterLink>  &nbsp;
+    return <ul id="filterPanel" className="nav nav-pills nav-justified">
+
+        <FilterLink filter="SHOW_ALL" >All</FilterLink>
+        <FilterLink filter="SHOW_COMPLETED" >Completed</FilterLink>
         <FilterLink filter="SHOW_ACTIVE" >Acive</FilterLink>
-    </div>
+    </ul>
 }

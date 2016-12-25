@@ -20,9 +20,9 @@ class TodoApp extends React.Component{
             <h1>Todo List</h1>
 
             <AddTodo />
-
+            <br/>
             <FilterPanel />
-
+            <br/>
             <TodoList />
 
         </div>);

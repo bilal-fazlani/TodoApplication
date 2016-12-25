@@ -3,15 +3,20 @@ import {connect} from "react-redux"
 
 const Link = ({isActive, children, onLinkClick}) => {
     if(isActive === true){
-        return <span>{children}</span>
+        return <li role="presentation" className="active">
+            <a href="#" >{children}</a>
+            </li>
+
     }
 
-    return <a href="#"
+    return <li role="presentation">
+    <a href="#" 
               onClick={(e)=> {
                   e.preventDefault();
                   onLinkClick();
               }
               }>{children}</a>
+    </li>
 }
 
 let FilterLink = ({filter, visibilityFilter, dispatch, children}) => {
