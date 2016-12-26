@@ -9,12 +9,15 @@ let TodoItem = ({
     onDeleteClick,
     id
 })=>{
-    return <a href="#" className={"list-group-item list-item "+ (completed === false? "": "completed")}>
-        <span className="list-item-text" onClick={()=>onItemClick(id)}>
+    return <a href="#" onClick={(e)=>{e.preventDefault(); onItemClick(id)}}
+              className={"list-group-item clearfix list-item "+ (completed === false? "": "completed list-group-item-danger")}>
+        <span className="list-item-text" >
             {text}
         </span>
 
-        <span className="delete-button" onClick={()=>onDeleteClick(id)}>X</span>
+        <button className="btn btn-xs btn-danger pull-right" onClick={()=>onDeleteClick(id)}>
+            <span className="glyphicon glyphicon-trash"></span>
+        </button>
     </a>
 }
 
