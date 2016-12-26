@@ -10,11 +10,14 @@ let TodoItem = ({
     id
 })=>{
     return <a href="#" onClick={(e)=>{e.preventDefault(); onItemClick(id)}}
-              className={"list-group-item clearfix"+ (completed === false? "": " list-group-item-danger completed")}>
+              className={"list-group-item clearfix"+ (completed === false? "": " list-group-item-success completed")}>
+
+        <span className={`glyphicon glyphicon-${completed === true?"check": "unchecked"}`}></span> {' '}
+
         <span className="list-item-text" >
             {text}
         </span>
-
+        
         <button className="btn btn-xs btn-danger pull-right" onClick={()=>onDeleteClick(id)}>
             <span className="glyphicon glyphicon-trash"></span>
         </button>
