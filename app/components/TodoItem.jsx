@@ -17,7 +17,7 @@ let TodoItem = ({
         <span className="list-item-text" >
             {text}
         </span>
-        
+
         <button className="btn btn-xs btn-danger pull-right" onClick={()=>onDeleteClick(id)}>
             <span className="glyphicon glyphicon-trash"></span>
         </button>

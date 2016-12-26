@@ -6,16 +6,13 @@ class AddTodo extends React.Component{
     constructor(props){
         super(props)
         this.index = 0;
-
-        this.state = {
-            inputText : ""
-        }
     }
 
     render(){
 
         let {buttonText = "Add",
-            onButtonClick
+            onButtonClick,
+            onTextChange
             } = this.props;
 
         return <div id="addTodo">
@@ -24,19 +21,19 @@ class AddTodo extends React.Component{
                     <input placeholder="todo"
                            className="form-control"
                            type="text"
-                           onChange={(e)=>this.setState({inputText:e.target.value})}
-                           value={this.state.inputText}
+                           onChange={(e)=>this.props.onTextChange(e.target.value)}
+                           value={this.props.inputText}
                            ref={(node)=> this.input = node}></input>
 
                     <span className="input-group-btn">
                         <input className="btn btn-primary"
                            type="submit"
-                           disabled={(this.state.inputText.trim().length === 0)}
+                           disabled={(this.props.inputText.trim().length === 0)}
                            value={buttonText}
                            onClick={(e)=>{
                                e.preventDefault();
                                onButtonClick(this.input.value);
-                               this.state.inputText = ""
+                               this.props.onTextChange("")
                            this.setState({inputText:""})}}
                            ref={(node)=>this.button=node}
                     />
@@ -50,7 +47,11 @@ class AddTodo extends React.Component{
 
 let index =0;
 
-AddTodo = connect(null, (dispatch)=>{
+AddTodo = connect((state)=>{
+    return {
+        inputText: state.inputText
+    }
+}, (dispatch)=>{
     return {
         onButtonClick: (inputValue) => {
             if(inputValue != '')
@@ -58,7 +59,13 @@ AddTodo = connect(null, (dispatch)=>{
                 type:"ADD",
                 id:index++,
                 text: inputValue
-        })}}
+        })}},
+        onTextChange: (inputText)=>{
+            dispatch({
+                type:"INPUT_TEXT",
+                inputText
+            })
+        }
     }
 })(AddTodo)
 

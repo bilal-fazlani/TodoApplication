@@ -5,7 +5,7 @@ import { createStore } from 'redux';
 import reducer from './Reducers/CombinedReducer';
 import TodoApp from 'components/TodoApp';
 
-const store = createStore(reducer, {todos:[], visibilityFilter: "SHOW_ALL"});
+const store = createStore(reducer, {todos:[], visibilityFilter: "SHOW_ALL", inputText:''});
 
 if (module.hot) {
   module.hot.accept('./Reducers/CombinedReducer', () => {

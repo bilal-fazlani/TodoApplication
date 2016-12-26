@@ -3,9 +3,11 @@
  */
 import VisibilityFilterReducer from "./VisibilityFilterReducer"
 import TodosReducer from "./TodosReducer"
+import InputTextReducer from "./InputTextReducer"
 import {combineReducers} from "redux"
 
 export default combineReducers({
     visibilityFilter: VisibilityFilterReducer,
-    todos: TodosReducer
+    todos: TodosReducer,
+    inputText: InputTextReducer
 })
