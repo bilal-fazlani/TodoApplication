@@ -1,11 +1,15 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 import reducer from './Reducers/CombinedReducer';
 import TodoApp from 'components/TodoApp';
+import persistState from "redux-localstorage";
 
-const store = createStore(reducer, {todos:[], visibilityFilter: "SHOW_ALL", inputText:''});
+const enhancer = compose(persistState())
+const store = createStore(reducer,
+    {todos:[], visibilityFilter: "SHOW_ALL", inputText:'', currentId:0},
+    enhancer);
 
 if (module.hot) {
   module.hot.accept('./Reducers/CombinedReducer', () => {

@@ -5,7 +5,6 @@ class AddTodo extends React.Component{
 
     constructor(props){
         super(props)
-        this.index = 0;
     }
 
     render(){
@@ -44,22 +43,26 @@ class AddTodo extends React.Component{
     }
 }
 
-
-let index =0;
-
 AddTodo = connect((state)=>{
     return {
         inputText: state.inputText
     }
-}, (dispatch)=>{
+}, (dispatch, ownProps)=>{
     return {
         onButtonClick: (inputValue) => {
             if(inputValue != '')
-            {dispatch({
+            {
+                dispatch({
+                    type:"INCREMENT_ID"
+                })
+
+                dispatch({
                 type:"ADD",
-                id:index++,
+                id:ownProps.currentId,
                 text: inputValue
-        })}},
+        })
+
+            }},
         onTextChange: (inputText)=>{
             dispatch({
                 type:"INPUT_TEXT",

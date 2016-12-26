@@ -8,14 +8,12 @@ class TodoApp extends React.Component{
 
     constructor(props){
         super(props)
-        this.index =0;
     }
 
 
     render(){
-        let{todos, visibilityFilter, dispatch} = this.props;
-
-
+        let{currentId} = this.props;
+        
         return (<div id="todoApp" className="panel panel-default">
 
             <div className="panel-heading">
@@ -24,7 +22,7 @@ class TodoApp extends React.Component{
                 </div>
             </div>
             <div className="panel-body">
-                <AddTodo />
+                <AddTodo currentId={currentId} />
                 <br/>
                 <FilterPanel />
                 <br/>
@@ -38,8 +36,9 @@ class TodoApp extends React.Component{
 
 TodoApp = connect(
     (state)=>{return {
-    todos : state.todos,
-    visibilityFilter: state.visibilityFilter
+        todos : state.todos,
+        visibilityFilter: state.visibilityFilter,
+        currentId: state.currentId
 }}
 )(TodoApp);
 
