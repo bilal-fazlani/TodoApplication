@@ -10,7 +10,7 @@ let TodoItem = ({
     id
 })=>{
     return <a href="#" onClick={(e)=>{e.preventDefault(); onItemClick(id)}}
-              className={"list-group-item clearfix"+ (completed === false? "": "completed list-group-item-danger")}>
+              className={"list-group-item clearfix"+ (completed === false? "": " list-group-item-danger completed")}>
         <span className="list-item-text" >
             {text}
         </span>

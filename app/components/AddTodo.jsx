@@ -1,26 +1,52 @@
 import React from "react"
 import {connect} from "react-redux"
 
-let AddTodo = ({
-    buttonText = "Add",
-    onButtonClick
-}) => {
-    let input;
-    return <div id="addTodo">
-        <form >
-            <div className="input-group">
-                <input placeholder="todo" className="form-control" type="text" ref={(node)=> input = node}></input>
-                <span className="input-group-btn">
-                    <input className="btn btn-primary" type="submit" value={buttonText} onClick={(e)=>{
-                        e.preventDefault();
-                        onButtonClick(input.value);
-                        input.value = ""}
-                    } />
+class AddTodo extends React.Component{
+
+    constructor(props){
+        super(props)
+        this.index = 0;
+
+        this.state = {
+            inputText : ""
+        }
+    }
+
+    render(){
+
+        let {buttonText = "Add",
+            onButtonClick
+            } = this.props;
+
+        return <div id="addTodo">
+            <form >
+                <div className="input-group">
+                    <input placeholder="todo"
+                           className="form-control"
+                           type="text"
+                           onChange={(e)=>this.setState({inputText:e.target.value})}
+                           value={this.state.inputText}
+                           ref={(node)=> this.input = node}></input>
+
+                    <span className="input-group-btn">
+                        <input className="btn btn-primary"
+                           type="submit"
+                           disabled={(this.state.inputText.trim().length === 0)}
+                           value={buttonText}
+                           onClick={(e)=>{
+                               e.preventDefault();
+                               onButtonClick(this.input.value);
+                               this.state.inputText = ""
+                           this.setState({inputText:""})}}
+                           ref={(node)=>this.button=node}
+                    />
                 </span>
-            </div>
-        </form>
-    </div>
+                </div>
+            </form>
+        </div>
+    }
 }
+
 
 let index =0;
 
