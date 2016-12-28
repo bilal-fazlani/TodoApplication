@@ -18,6 +18,7 @@
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.6",
     "redux": "^3.2.1",
+    "redux-devtools-extension": "^1.0.0",
     "redux-localstorage": "^0.4.1"
   },
   "devDependencies": {

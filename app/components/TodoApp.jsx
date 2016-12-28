@@ -13,7 +13,7 @@ class TodoApp extends React.Component{
 
     render(){
         let{currentId} = this.props;
-        
+
         return (<div id="todoApp" className="panel panel-default">
 
             <div className="panel-heading">
